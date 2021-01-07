@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">RecDoc2</string>
+    <string name="app_name">Recdoc</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="makanan">Makanan</string>
+    <string name="food">Food</string>
+    <string name="more">More</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="excercise">Excercise</string>
+
 </resources>

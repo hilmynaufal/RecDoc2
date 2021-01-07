@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+
+
+
+<item
+
+    android:id="@+id/food_menu"
+
+    android:title="@string/food"
+
+    android:icon="@drawable/fruit"/>
+
+
+
+<item
+
+    android:id="@+id/exercise_menu"
+
+    android:title="@string/excercise"
+
+    android:icon="@drawable/gym"/>
+
+<item
+
+    android:id="@+id/more_menu"
+
+    android:title="@string/more"
+
+    android:icon="@drawable/more"/>
+
+
+
+
+
+</menu>
