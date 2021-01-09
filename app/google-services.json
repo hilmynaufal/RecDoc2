@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829644789156",
+    "project_id": "recdoc2-19c2f",
+    "storage_bucket": "recdoc2-19c2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829644789156:android:671139c37ff48d5be1dd31",
+        "android_client_info": {
+          "package_name": "com.team7.recdoc2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829644789156-9ve6fj9rp86d9a0rbfqou8vjvi1oal54.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Is9D0xCs6KP5bK3QkXWiv3Guk6VBe2s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829644789156-9ve6fj9rp86d9a0rbfqou8vjvi1oal54.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -6,7 +6,7 @@
 
         <variable
             name="food"
-            type="com.team7.recdoc.viewmodel.FoodListViewModel" />
+            type="com.team7.recdoc2.viewmodel.FoodListViewModel" />
     </data>
 
     <LinearLayout
