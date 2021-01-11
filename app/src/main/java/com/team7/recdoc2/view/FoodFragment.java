@@ -11,13 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.team7.recdoc2.R;
 import com.team7.recdoc2.adapter.FoodDataAdapter;
 import com.team7.recdoc2.network.FirebaseClient;
 import com.team7.recdoc2.viewmodel.FoodListViewModel;
+
+import java.util.ArrayList;
 
 public class FoodFragment extends Fragment implements View.OnClickListener {
 
@@ -44,8 +48,20 @@ public class FoodFragment extends Fragment implements View.OnClickListener {
         Button button = view.findViewById(R.id.btnSearchFood);
         final Button btnConsume = view.findViewById(R.id.btnConsume);
 
+        button.setOnClickListener(this);
 
-//        final FirebaseClient client = FirebaseClient.getInstance();
+        final FirebaseClient client = FirebaseClient.getInstance();
+        client.setReference("stats");
+
+        btnConsume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                client.updateCalories(total, 0, search, "");
+                total = 0.0;
+                totalcalories.setText("Your food has been consumed and were added to your profile!");
+                btnConsume.setVisibility(View.GONE);
+            }
+        });
 
         recyclerView = view.findViewById(R.id.viewFood);
         foodListViewModel = ViewModelProviders.of(this).get(FoodListViewModel.class);
@@ -55,6 +71,23 @@ public class FoodFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
+        search = textView.getText().toString();
+        foodListViewModel.getMutableLiveData(search)
+                .observe(this, new Observer<ArrayList<FoodListViewModel>>() {
+                    @Override
+                    public void onChanged(ArrayList<FoodListViewModel> foodListViewModels) {
+                        foodDataAdapter = new FoodDataAdapter(foodListViewModels, getContext());
+                        for (int i = 0; i < foodListViewModels.size(); i++) {
+                            ttl += foodListViewModels.get(i).nf_total_calories;
+                            total = ttl;
+                        }
+                        ttl = 0;
+                        String sTotal = "Total Calories = " + total + " kcal";
+                        totalcalories.setText(sTotal);
+                        FoodLayout.setVisibility(View.VISIBLE);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        recyclerView.setAdapter(foodDataAdapter);
+                    }
+                });
     }
 }

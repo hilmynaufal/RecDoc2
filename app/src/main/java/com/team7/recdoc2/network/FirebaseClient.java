@@ -29,7 +29,7 @@ public class FirebaseClient {
 
     public FirebaseClient() {
         mAuth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance("https://recdoc2-19c2f-default-rtdb.firebaseio.com/");
         userId = mAuth.getCurrentUser().getUid();
     }
 

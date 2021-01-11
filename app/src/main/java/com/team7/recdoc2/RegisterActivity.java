@@ -18,6 +18,13 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.team7.recdoc2.model.model.Stats;
+import com.team7.recdoc2.model.model.User;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -42,9 +49,9 @@ public class RegisterActivity extends AppCompatActivity {
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
-                String username = edt_usernameSignUp.getText().toString();
-                String email = edt_emailSignUp.getText().toString();
-                String password = edt_passwordSignUp.getText().toString();
+                final String username = edt_usernameSignUp.getText().toString();
+                final String email = edt_emailSignUp.getText().toString();
+                final String password = edt_passwordSignUp.getText().toString();
 
                 if (username.equals("")) edt_usernameSignUp.setError("Username is empty!");
                 else if (email.equals("")) edt_emailSignUp.setError("Password is empty!");
@@ -62,6 +69,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     editor.putString("username", firebaseAuth.getCurrentUser().getUid());
                                     editor.apply();
                                     //ended
+
+                                    addToDatabase(username, email);
 
                                     toMenuActivity();
                                 } else Toast.makeText(view.getContext(), task.getException().getLocalizedMessage(), Toast.LENGTH_LONG).show();
@@ -95,5 +104,20 @@ public class RegisterActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    void addToDatabase(String username, String email) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance("https://recdoc2-19c2f-default-rtdb.firebaseio.com/");
+        DatabaseReference ref = database.getReference();
+        String userId = firebaseAuth.getCurrentUser().getUid();
+        DatabaseReference userRef = ref.child("users/" + userId);
+
+        Map<String, User> users = new HashMap<>();
+        users.put("profile", new User(username, email));
+        userRef.setValue(users);
+
+        Map<String, Stats> stats = new HashMap<>();
+        userRef.child("stats").setValue( new Stats(0,0,0,"",""));
+
     }
 }
