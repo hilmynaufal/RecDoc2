@@ -9,4 +9,8 @@
     <color name="colorNavigationIcon">#dae9f6</color>
 
     <color name="colorNavigationText">#FFFFFF</color>
+
+    <color name="Text">#000000</color>
+
+    <color name="buttonbg">#00B894</color>
 </resources>
