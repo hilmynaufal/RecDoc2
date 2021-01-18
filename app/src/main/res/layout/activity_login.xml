@@ -111,7 +111,7 @@
         android:backgroundTint="@android:color/black"
         android:drawableTint="@android:color/black"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:textColor="@color/Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

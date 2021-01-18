@@ -31,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText edt_emailSignUp, edt_usernameSignUp, edt_passwordSignUp;
     private Button btn_SignUp;
     FirebaseAuth firebaseAuth;
+    private SharedPreferences localstat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,8 +117,15 @@ public class RegisterActivity extends AppCompatActivity {
         users.put("profile", new User(username, email));
         userRef.setValue(users);
 
-        Map<String, Stats> stats = new HashMap<>();
-        userRef.child("stats").setValue( new Stats(0,0,0,"",""));
+        userRef.child("stats").setValue( new Stats(0,0,0,"","", 0));
+
+        //toLocalDatabase
+        localstat = getSharedPreferences("LocalStat", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = localstat.edit();
+        editor.putFloat("goal", 0);
+        editor.putFloat("consumed", 0);
+        editor.apply();
+        //end
 
     }
 }

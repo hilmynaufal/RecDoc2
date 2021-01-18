@@ -17,6 +17,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.team7.recdoc2.model.model.User;
+
+import java.util.List;
+import java.util.Set;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
 
         edtLoginUsername.setText("hilmyblaze@gmail.com");
-        edtLoginPassword.setText("Darkside1");
+        edtLoginPassword.setText("12345678");
 
         txt_ToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                        @Override
                        public void onComplete(@NonNull Task<AuthResult> task) {
                            if (task.isSuccessful()) {
+
                                //insert data to local
                                SharedPreferences.Editor editor = localuser.edit();
                                editor.putString("username", firebaseAuth.getCurrentUser().getUid());

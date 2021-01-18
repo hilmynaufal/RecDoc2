@@ -1,6 +1,10 @@
 package com.team7.recdoc2.viewmodel;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
@@ -9,10 +13,12 @@ import androidx.lifecycle.ViewModel;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.snackbar.Snackbar;
 import com.team7.recdoc2.model.model.food.Food;
 import com.team7.recdoc2.model.model.food.FoodResult;
 import com.team7.recdoc2.network.APIService;
 import com.team7.recdoc2.network.ApiClient;
+import com.team7.recdoc2.network.FirebaseClient;
 import com.team7.recdoc2.network.FoodRequest;
 
 import java.util.ArrayList;
@@ -26,13 +32,15 @@ public class FoodListViewModel extends ViewModel {
     public String food_name = "";
     public String brand_name = "";
     public String serving_qty = "";
-    public String nf_calories = "";
+    public double nf_calories = 0;
     public double nf_total_calories = 0.0;
     public String thumb = "";
     public MutableLiveData<ArrayList<FoodListViewModel>> mutableLiveData = new MutableLiveData<>();
 
     private ArrayList<FoodListViewModel> arrayList;
     private ArrayList<Food> foods;
+
+    FirebaseClient client = FirebaseClient.getInstance();
 
     public String imgUrl() {
         return thumb;
@@ -52,10 +60,11 @@ public class FoodListViewModel extends ViewModel {
 
     public FoodListViewModel(Food food) {
         this.food_name = food.getFoodName();
-        this.nf_calories = food.getNfCalories().toString() + " kcal";
+        this.nf_calories = food.getNfCalories();
         this.serving_qty = food.getServingQty().toString();
         this.thumb = food.getPhoto().getThumb();
         this.nf_total_calories = food.getNfCalories();
+        client.setReference("stats");
     }
 
     public MutableLiveData<ArrayList<FoodListViewModel>> getMutableLiveData(String s) {
@@ -92,5 +101,19 @@ public class FoodListViewModel extends ViewModel {
         });
         if (mutableLiveData != null) Log.d("cekcek", "tdk error");
         return mutableLiveData;
+    }
+
+    public void consumeFood(View view) {
+        SharedPreferences localstat = view.getContext().getSharedPreferences("LocalStat", Context.MODE_PRIVATE);
+
+        long consumed = (long) (client.getConsumed() + nf_calories);
+        Log.d("local", String.valueOf(consumed));
+        client.updateConsumedAndTarget(consumed, localstat.getFloat("goal", 0));
+        Snackbar.make(view, String.valueOf(this.nf_calories), Snackbar.LENGTH_LONG).show();
+
+        //addToLocal
+        SharedPreferences.Editor editor = localstat.edit();
+        editor.putFloat("consumed", consumed);
+        editor.apply();
     }
 }
