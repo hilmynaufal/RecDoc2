@@ -50,18 +50,18 @@ public class FoodFragment extends Fragment implements View.OnClickListener {
 
         button.setOnClickListener(this);
 
-        final FirebaseClient client = FirebaseClient.getInstance();
-        client.setReference("stats");
-
-        btnConsume.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                client.updateCalories(total, 0, search, "");
-                total = 0.0;
-                totalcalories.setText("Your food has been consumed and were added to your profile!");
-                btnConsume.setVisibility(View.GONE);
-            }
-        });
+//        final FirebaseClient client = FirebaseClient.getInstance();
+//        client.setReference("stats");
+//
+//        btnConsume.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                client.updateCalories(total, 0, search, "");
+//                total = 0.0;
+//                totalcalories.setText("Your food has been consumed and were added to your profile!");
+//                btnConsume.setVisibility(View.GONE);
+//            }
+//        });
 
         recyclerView = view.findViewById(R.id.viewFood);
         foodListViewModel = ViewModelProviders.of(this).get(FoodListViewModel.class);
@@ -77,14 +77,14 @@ public class FoodFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onChanged(ArrayList<FoodListViewModel> foodListViewModels) {
                         foodDataAdapter = new FoodDataAdapter(foodListViewModels, getContext());
-                        for (int i = 0; i < foodListViewModels.size(); i++) {
-                            ttl += foodListViewModels.get(i).nf_total_calories;
-                            total = ttl;
-                        }
-                        ttl = 0;
-                        String sTotal = "Total Calories = " + total + " kcal";
-                        totalcalories.setText(sTotal);
-                        FoodLayout.setVisibility(View.VISIBLE);
+//                        for (int i = 0; i < foodListViewModels.size(); i++) {
+//                            ttl += foodListViewModels.get(i).nf_total_calories;
+//                            total = ttl;
+//                        }
+//                        ttl = 0;
+//                        String sTotal = "Total Calories = " + total + " kcal";
+//                        totalcalories.setText(sTotal);
+//                        FoodLayout.setVisibility(View.VISIBLE);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         recyclerView.setAdapter(foodDataAdapter);
                     }

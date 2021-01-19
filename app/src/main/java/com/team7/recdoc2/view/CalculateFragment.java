@@ -22,15 +22,19 @@ import com.team7.recdoc2.R;
 import com.team7.recdoc2.network.FirebaseClient;
 
 public class CalculateFragment extends Fragment {
+
+    private SharedPreferences localstat;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_more, container, false);
+        View view = inflater.inflate(R.layout.fragment_calculate, container, false);
 
         SharedPreferences localuser = view.getContext().getSharedPreferences("UserLocal", Context.MODE_PRIVATE);
 
         //firebase
         final FirebaseClient client = FirebaseClient.getInstance();
+        client.setReference("stats");
 
         final EditText edtTinggi = view.findViewById(R.id.edtTinggi);
         final EditText edtBerat = view.findViewById(R.id.edtBerat);
@@ -63,15 +67,23 @@ public class CalculateFragment extends Fragment {
                     String gender;
                     if (id == R.id.btnPria) gender = "Pria";
                     else gender = "Wanita";
-                    double totalKalori = hitungKalori(tinggi, berat, usia, id);
+                    long totalKalori = hitungKalori(tinggi, berat, usia, id);
                     txtCalori.setText("Total Kalori yang dibutuhkan per hari adalah: " + totalKalori);
+                    client.updateTarget(totalKalori);
+
+                    //toLocalDatabase
+                    localstat = view.getContext().getSharedPreferences("LocalStat", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = localstat.edit();
+                    editor.putFloat("goal", totalKalori);
+                    editor.apply();
+                    //end
                 }
             }
         });
         return view;
     }
 
-    double hitungKalori(int tinggi, int berat, int usia, int id) {
+    long hitungKalori(int tinggi, int berat, int usia, int id) {
         double totalKalori;
         if (id == R.id.btnPria) {
             totalKalori = 13.397 * berat + 4.779 * tinggi - 5.677 * usia + 88.362;
@@ -81,4 +93,5 @@ public class CalculateFragment extends Fragment {
 
         return Math.round(totalKalori);
     }
+
 }

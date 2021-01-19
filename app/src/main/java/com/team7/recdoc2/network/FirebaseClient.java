@@ -75,6 +75,21 @@ public class FirebaseClient {
         });
     }
 
+    public void updateTarget(double target) {
+        Map<String, Object> userUpdate = new HashMap<>();
+
+        userUpdate.put("target", target);
+        userRef.updateChildren(userUpdate);
+    }
+
+    public void updateConsumedAndTarget (double consumed, double target) {
+        Map<String, Object> userUpdate = new HashMap<>();
+
+        userUpdate.put("calories_consumed", consumed);
+        userUpdate.put("target", target);
+        userRef.updateChildren(userUpdate);
+    }
+
     public double getConsumed() {
         Log.d("cekcek", "Stats value of total_calories: ");
         return stats.getCalories_consumed();
@@ -102,6 +117,10 @@ public class FirebaseClient {
 
     public String getUsername() {
         return profile.getUsername();
+    }
+
+    public double getTarget() {
+        return stats.getTarget();
     }
 
     public void resetStats() {

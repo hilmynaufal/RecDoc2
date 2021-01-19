@@ -7,6 +7,7 @@
         android:layout_height="match_parent"
         android:background="#333745"
         >
+
         <TextView
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
@@ -162,5 +163,6 @@
                 tools:layout_editor_absoluteX="276dp"
                 tools:layout_editor_absoluteY="293dp" />
         </RadioGroup>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,6 +4,7 @@ public class Stats {
     double calories_consumed;
     double calories_burned;
     double total_calories;
+    double target;
     String last_food_consumed;
     String last_exercise;
     String consumed_on;
@@ -12,12 +13,13 @@ public class Stats {
     public Stats() {
     }
 
-    public Stats(double calories_consumed, double calories_burned, double total_calories, String last_food_consumed, String last_exercise) {
+    public Stats(double calories_consumed, double calories_burned, double total_calories, String last_food_consumed, String last_exercise, double target) {
         this.calories_consumed = calories_consumed;
         this.calories_burned = calories_burned;
         this.total_calories = total_calories;
         this.last_food_consumed = last_food_consumed;
         this.last_exercise = last_exercise;
+        this.target = target;
     }
 
     public double getCalories_consumed() {
@@ -74,5 +76,13 @@ public class Stats {
 
     public void setExercise_on(String exercise_on) {
         this.exercise_on = exercise_on;
+    }
+
+    public double getTarget() {
+        return target;
+    }
+
+    public void setTarget(double target) {
+        this.target = target;
     }
 }

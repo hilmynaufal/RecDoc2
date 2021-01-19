@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.team7.recdoc2.MainActivity"
+    android:background="@color/cardview_light_background">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.team7.recdoc2.MainActivity"
-    android:background="@color/cardview_light_background"
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -108,11 +110,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Burned"
+                        android:text="Goal"
                         android:textSize="20sp" />
 
                     <TextView
-                        android:id="@+id/tvBurned"
+                        android:id="@+id/tvTarget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
@@ -131,7 +133,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Total"
+                        android:text="Left to Goal"
                         android:textSize="20sp" />
 
                     <TextView
@@ -230,3 +232,4 @@
             android:textColor="#fff"
             android:visibility="gone" />
     </LinearLayout>
+</layout>
