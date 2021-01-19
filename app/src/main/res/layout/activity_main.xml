@@ -30,7 +30,7 @@
 
         android:layout_alignParentBottom="true"
 
-        android:background="@android:color/black"
+        android:background="@android:color/white"
 
         app:itemIconTint="@drawable/state"
 

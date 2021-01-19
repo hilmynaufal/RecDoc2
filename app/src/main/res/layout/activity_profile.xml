@@ -16,7 +16,7 @@
 
 
         <LinearLayout
-            android:background="@drawable/gradientbackground"
+            android:background="@android:color/white"
             android:layout_width="match_parent"
             android:layout_height="350dp"
             android:orientation="vertical">
@@ -36,7 +36,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/logout"
-                    android:textColor="#fff" />
+                    android:textColor="#000000" />
 
                 <ImageView
                     android:layout_width="150dp"
@@ -48,7 +48,7 @@
                     android:layout_marginStart="130dp"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="130dp"
-                    android:src="@drawable/ic_person_black_24dp" />
+                    android:src="@drawable/user2" />
 
                 <TextView
                     android:id="@+id/tvUsername"
@@ -60,7 +60,7 @@
                     android:layout_marginStart="154dp"
                     android:layout_marginTop="200dp"
                     android:layout_marginEnd="151dp"
-                    android:textColor="#fff"
+                    android:textColor="#000000"
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
@@ -68,8 +68,8 @@
 
         </LinearLayout>
         <androidx.cardview.widget.CardView
-            android:layout_width="400dp"
-            android:layout_height="120dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="275dp">
             <LinearLayout
@@ -85,19 +85,22 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Consumed"
-                        android:textSize="20sp" />
-
-                    <TextView
                         android:id="@+id/tvConsumed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:textColor="@color/ColorLightBlue"
+                        android:textColor="@color/Text2"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consumed"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+
+
 
                 </LinearLayout>
                 <LinearLayout
@@ -106,21 +109,23 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Goal"
-                        android:textSize="20sp" />
-
                     <TextView
                         android:id="@+id/tvTarget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:textColor="@color/ColorLightBlue"
+                        android:textColor="@color/Text2"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Goal"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+
+
 
                 </LinearLayout>
                 <LinearLayout
@@ -129,21 +134,24 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Left to Goal"
-                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/tvTotal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
-                        android:textColor="@color/ColorLightBlue"
+                        android:textColor="@color/Text2"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Left to Goal"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+
+
 
                 </LinearLayout>
             </LinearLayout>
@@ -151,74 +159,7 @@
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="45dp">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/mail"/>
 
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="20dp"
-                android:text="Wiliam@gmail.com"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_directions_run_black_24dp"/>
-
-            <TextView
-                android:id="@+id/tvLastExercise"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="20dp"
-                android:text="+266 225 225"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_restaurant_menu_black_24dp"/>
-
-            <TextView
-                android:id="@+id/tvLastFood"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingLeft="20dp"
-                android:text="Add to group"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
 
 
     <Button

@@ -14,7 +14,7 @@
 
     android:title="@string/home"
 
-    android:icon="@drawable/fruit"/>
+    android:icon="@drawable/home"/>
 
 
 
@@ -24,7 +24,7 @@
 
     android:title="@string/food"
 
-    android:icon="@drawable/fruit"/>
+    android:icon="@drawable/restaurant"/>
 
 <item
 
@@ -32,7 +32,7 @@
 
     android:title="@string/more"
 
-    android:icon="@drawable/more"/>
+    android:icon="@drawable/calculator"/>
 
 
 
