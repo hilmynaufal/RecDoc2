@@ -46,9 +46,7 @@ public class HomeFragment extends Fragment {
         tvConsumed = view.findViewById(R.id.tvConsumed);
         tvTarget = view.findViewById(R.id.tvTarget);
         tvTotal = view.findViewById(R.id.tvTotal);
-        tvLastExercise = view.findViewById(R.id.tvLastExercise);
-        tvLastFood = view.findViewById(R.id.tvLastFood);
-        tvEmail = view.findViewById(R.id.tvEmail);
+
 
 //        profileClient = FirebaseClient.getInstance();
 //        profileClient.setReference("profile");

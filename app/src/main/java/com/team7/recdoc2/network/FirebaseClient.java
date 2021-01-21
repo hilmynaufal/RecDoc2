@@ -38,7 +38,7 @@ public class FirebaseClient {
         return firebaseClient;
     }
 
-    public synchronized void setReference(final String child) {
+    public void setReference(final String child) {
         DatabaseReference ref = database.getReference();
         userRef = ref.child("users/" + userId).child(child);
 
