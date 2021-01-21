@@ -13,36 +13,45 @@
             android:id="@+id/lyoLinear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/btnsearch"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <Button
+                android:id="@+id/btnSearchFood"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/search"
+                android:backgroundTint="#00B894"/>
 
             <EditText
                 android:id="@+id/edtSearchFood"
-                android:layout_width="275dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
+                android:layout_marginStart="2dp"
+                android:backgroundTint="#fff"
                 android:hint="@string/search"/>
-            <Button
-                android:id="@+id/btnSearchFood"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/btnsearch"
-                android:text="@string/search" />
+
         </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            android:gravity="center_horizontal"
-            android:text="Food List"/>
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            style="@style/TextAppearance.AppCompat.Medium"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="Food List"/>-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/viewFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:padding="4dp"

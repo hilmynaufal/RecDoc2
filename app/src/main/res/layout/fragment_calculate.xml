@@ -5,149 +5,91 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#333745"
         >
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="68dp"
-            android:text="Jenis Kelamin"
-            android:textColor="#ffffff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="56dp"
-            android:text="Tinggi Badan"
-            android:textColor="#ffffff"
+            android:layout_marginTop="50dp"
+            android:text="Height (cm)"
+            android:textColor="#000"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/edtTinggi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="#ffffff"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/btnisi"
             android:ems="10"
             android:inputType="number"
-            android:textColor="#ffffff"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:hint="Tinggi"
+            android:paddingLeft="10dp"
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="60dp"
-            android:text="Berat Badan"
-            android:textColor="#ffffff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="50dp"
+            android:text="Weight (kg)"
+            android:textColor="#000"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/edtBerat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="#ffffff"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/btnisi"
             android:ems="10"
             android:inputType="number"
-            android:textColor="#ffffff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/edtTinggi" />
-
-
-        <Button
-            android:id="@+id/btnHitung"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="50dp"
-            android:background="@drawable/btnbgwhite"
-            android:text="Hitung"
-            android:textColor="#333745"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGender"
-            app:layout_constraintVertical_bias="0.262" />
-
-        <TextView
-            android:id="@+id/txtCalori"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="76dp"
-            android:textColor="#ffffff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnHitung" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="68dp"
-            android:text="Usia"
-            android:textColor="#ffffff"
-            app:layout_constraintStart_toStartOf="parent"
+            android:hint="Berat"
+            android:paddingLeft="10dp"
+            android:textColor="#000"
+            app:layout_constraintStart_toEndOf="@+id/edtTinggi"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-        <EditText
-            android:id="@+id/edtUsia"
+        <TextView
+            android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="30dp"
-            android:backgroundTint="#ffffff"
-            android:ems="10"
-            android:inputType="number"
-            android:textColor="#ffffff"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView8"
-            app:layout_constraintTop_toBottomOf="@+id/edtBerat" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Jenis Kelamin"
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTinggi" />
 
         <RadioGroup
             android:id="@+id/btnGender"
-            android:layout_width="228dp"
-            android:layout_height="39dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="2dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.747"
-            app:layout_constraintStart_toEndOf="@+id/textView10"
-            app:layout_constraintTop_toBottomOf="@+id/edtUsia">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10">
 
             <RadioButton
                 android:id="@+id/btnPria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:buttonTint="#ffffff"
+                android:layout_marginLeft="-6dp"
+                android:layout_marginTop="5dp"
+                android:buttonTint="#000"
                 android:checked="false"
-                android:text="Pria"
-                android:textColor="#ffffff"
+                android:text="Male"
+                android:textColor="#000"
                 app:layout_constraintTop_toBottomOf="@+id/edtUsia"
                 tools:layout_editor_absoluteX="140dp" />
 
@@ -155,14 +97,70 @@
                 android:id="@+id/btnWanita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="12dp"
-                android:buttonTint="#ffffff"
-                android:text="Wanita"
-                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:buttonTint="#000"
+                android:text="Female"
+                android:textColor="#000"
                 tools:layout_editor_absoluteX="276dp"
                 tools:layout_editor_absoluteY="293dp" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="20dp"
+            android:text="Age"
+            android:textColor="#000"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/edtBerat" />
+
+        <EditText
+            android:id="@+id/edtUsia"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/btnisi"
+            android:ems="10"
+            android:hint="Usia"
+            android:inputType="number"
+            android:paddingLeft="10dp"
+            android:textColor="#000"
+            app:layout_constraintStart_toEndOf="@+id/btnGender"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <Button
+            android:id="@+id/btnHitung"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/btnbg"
+            android:text="Calculate"
+            android:textColor="#fff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtUsia" />
+
+        <TextView
+            android:id="@+id/txtCalori"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:hint="jumlah kalori yang dibutuhkan adalah x kal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnHitung" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
