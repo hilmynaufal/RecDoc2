@@ -2,11 +2,13 @@ package com.team7.recdoc2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.collection.ArraySet;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,8 +25,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.team7.recdoc2.model.model.Stats;
 import com.team7.recdoc2.model.model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -44,6 +52,11 @@ public class RegisterActivity extends AppCompatActivity {
         edt_usernameSignUp = findViewById(R.id.edt_usernameSignUp);
         edt_passwordSignUp = findViewById(R.id.edt_passwordSignUp);
         btn_SignUp = findViewById(R.id.btn_SignUp);
+
+        //test
+        edt_usernameSignUp.setText("Hilmy");
+        edt_emailSignUp.setText("hilmyblaze@gmail.com");
+        edt_passwordSignUp.setText("12345678");
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -117,13 +130,23 @@ public class RegisterActivity extends AppCompatActivity {
         users.put("profile", new User(username, email));
         userRef.setValue(users);
 
-        userRef.child("stats").setValue( new Stats(0,0,0,"","", 0));
+        List<String> last_food_consumed = new ArrayList<>();
+        for (int i = 1; i <= 5; i++) {
+            last_food_consumed.add("");
+        }
+
+        userRef.child("stats").setValue( new Stats(0,0,0,last_food_consumed,"", 0));
 
         //toLocalDatabase
         localstat = getSharedPreferences("LocalStat", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = localstat.edit();
         editor.putFloat("goal", 0);
         editor.putFloat("consumed", 0);
+//        Set<String> asw = new HashSet<>(last_food_consumed);
+//
+//        Log.d("last", asw.toString());
+//
+//        editor.putStringSet("last_food_consumed", asw);
         editor.apply();
         //end
 

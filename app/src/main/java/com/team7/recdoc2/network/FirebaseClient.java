@@ -14,7 +14,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.team7.recdoc2.model.model.Stats;
 import com.team7.recdoc2.model.model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FirebaseClient {
@@ -56,7 +58,7 @@ public class FirebaseClient {
         });
     }
 
-    public void updateCalories(double consumed, double burned, String last_food_consumed, String last_exercise) {
+    public void updateCalories(double consumed, double burned, List<String> last_food_consumed, String last_exercise) {
         Map<String, Object> usersUpdate = new HashMap<>();
 
         double total_calories = stats.getTotal_calories();
@@ -82,12 +84,31 @@ public class FirebaseClient {
         userRef.updateChildren(userUpdate);
     }
 
-    public void updateConsumedAndTarget (double consumed, double target) {
+    public void updateConsumedAndTarget (double consumed, String food, double target) {
         Map<String, Object> userUpdate = new HashMap<>();
+
+        List<String> list = new ArrayList<>(stats.getLast_food_consumed());
+        boolean done = false;
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals("")) {
+                list.remove(4);
+                list.add(i, food);
+                done = true;
+                break;
+            }
+        }
+
+        if (!done) {
+            list.add(0, food);
+            list.remove(5);
+        }
+
 
         userUpdate.put("calories_consumed", consumed);
         userUpdate.put("target", target);
         userRef.updateChildren(userUpdate);
+        userRef.child("last_food_consumed").setValue(list);
     }
 
     public double getConsumed() {
@@ -103,9 +124,9 @@ public class FirebaseClient {
         return stats.getTotal_calories();
     }
 
-    public String getLastFoodConsumed() {
-        return stats.getLast_food_consumed();
-    }
+//    public String getLastFoodConsumed() {
+//        return stats.getLast_food_consumed();
+//    }
 
     public String getLastExercise() {
         return stats.getLast_exercise();
@@ -121,6 +142,10 @@ public class FirebaseClient {
 
     public double getTarget() {
         return stats.getTarget();
+    }
+
+    public List<String> getLastConsumed() {
+        return stats.getLast_food_consumed();
     }
 
     public void resetStats() {

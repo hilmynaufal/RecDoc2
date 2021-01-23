@@ -1,9 +1,11 @@
 package com.team7.recdoc2.view;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -45,10 +47,21 @@ public class FoodFragment extends Fragment implements View.OnClickListener {
         FoodLayout = view.findViewById(R.id.llCalories);
         totalcalories = view.findViewById(R.id.TotalCalories);
 
-        Button button = view.findViewById(R.id.btnSearchFood);
+        final Button button = view.findViewById(R.id.btnSearchFood);
         final Button btnConsume = view.findViewById(R.id.btnConsume);
 
         button.setOnClickListener(this);
+
+        textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    search = textView.getText().toString();
+                    button.performClick();
+                }
+                return false;
+            }
+        });
 
 //        final FirebaseClient client = FirebaseClient.getInstance();
 //        client.setReference("stats");

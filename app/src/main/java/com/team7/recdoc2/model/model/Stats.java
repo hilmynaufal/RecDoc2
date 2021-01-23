@@ -1,11 +1,13 @@
 package com.team7.recdoc2.model.model;
 
+import java.util.List;
+
 public class Stats {
     double calories_consumed;
     double calories_burned;
     double total_calories;
     double target;
-    String last_food_consumed;
+    List<String> last_food_consumed;
     String last_exercise;
     String consumed_on;
     String exercise_on;
@@ -13,7 +15,7 @@ public class Stats {
     public Stats() {
     }
 
-    public Stats(double calories_consumed, double calories_burned, double total_calories, String last_food_consumed, String last_exercise, double target) {
+    public Stats(double calories_consumed, double calories_burned, double total_calories, List<String> last_food_consumed, String last_exercise, double target) {
         this.calories_consumed = calories_consumed;
         this.calories_burned = calories_burned;
         this.total_calories = total_calories;
@@ -46,11 +48,11 @@ public class Stats {
         this.total_calories = total_calories;
     }
 
-    public String getLast_food_consumed() {
+    public List<String> getLast_food_consumed() {
         return last_food_consumed;
     }
 
-    public void setLast_food_consumed(String last_food_consumed) {
+    public void setLast_food_consumed(List<String> last_food_consumed) {
         this.last_food_consumed = last_food_consumed;
     }
 

@@ -22,12 +22,13 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_passwordSignUp" />
 
     <EditText
+        android:background="@drawable/btnisi"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:id="@+id/edt_passwordSignUp"
         android:layout_width="239dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/black"
-        android:drawableTint="@android:color/black"
         android:ems="10"
         android:inputType="textPassword"
         android:textColor="@android:color/black"
@@ -50,12 +51,13 @@
         app:layout_constraintTop_toBottomOf="@+id/edt_emailSignUp" />
 
     <EditText
+        android:background="@drawable/btnisi"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:id="@+id/edt_emailSignUp"
         android:layout_width="239dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="@android:color/black"
-        android:drawableTint="@android:color/black"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:textColor="@android:color/black"
@@ -104,6 +106,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:background="@drawable/btnisi"
         android:id="@+id/edt_usernameSignUp"
         android:layout_width="239dp"

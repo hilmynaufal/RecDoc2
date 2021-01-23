@@ -21,6 +21,11 @@ import com.team7.recdoc2.network.FirebaseClient;
 import com.team7.recdoc2.network.FoodRequest;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -105,14 +110,33 @@ public class FoodListViewModel extends ViewModel {
     public void consumeFood(View view) {
         SharedPreferences localstat = view.getContext().getSharedPreferences("LocalStat", Context.MODE_PRIVATE);
 
-        long consumed = (long) (client.getConsumed() + nf_calories);
-        Log.d("local", String.valueOf(consumed));
-        client.updateConsumedAndTarget(consumed, localstat.getFloat("goal", 0));
-        Snackbar.make(view, String.valueOf(this.nf_calories), Snackbar.LENGTH_LONG).show();
+        long consumed = (long) (localstat.getFloat("consumed", 0) + nf_calories);
+
+        //foodtolacaldatabase
+//        Set<String> stringSet= new HashSet<>(localstat.getStringSet("last_food_consumed", new HashSet<String>()));
+//        List<String> list = new ArrayList<>(stringSet);
+//        for (int i = 0; i < list.size(); i++){
+//            if (String.valueOf(i+1).equals(list.get(i))){
+//                list.add(i, this.food_name);
+//                list.remove(String.valueOf(i));
+//                Log.d("cek", "i+1: " + i+1 + ", list: " + list.get(i));
+//            }
+//        }
+//        Log.d("cek", "list: " + list.toString());
+//        stringSet.addAll(list);
+//        Log.d("cek", "Set: " + stringSet.toString());
+        //end
+
+//        Log.d("local", String.valueOf(consumed));
+        String food = this.food_name.toUpperCase() + " (" + this.nf_calories + " kcal)";
+        client.updateConsumedAndTarget(consumed, food, localstat.getFloat("goal", 0));
+        Snackbar.make(view, this.food_name.toUpperCase() + " (" + this.nf_calories + " kcal) Consumed!", Snackbar.LENGTH_LONG).show();
 
         //addToLocal
         SharedPreferences.Editor editor = localstat.edit();
         editor.putFloat("consumed", consumed);
+//        editor.putStringSet("last_food_consumed", stringSet);
         editor.apply();
+        //end
     }
 }

@@ -34,7 +34,8 @@
                 android:inputType="textPersonName"
                 android:layout_marginStart="2dp"
                 android:backgroundTint="#fff"
-                android:hint="@string/search"/>
+                android:hint="@string/search"
+                android:imeOptions="actionDone"/>
 
         </LinearLayout>
 <!--        <TextView-->
